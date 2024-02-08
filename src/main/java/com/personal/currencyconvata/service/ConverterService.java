@@ -19,6 +19,14 @@ public class ConverterService {
         this.restTemplate = restTemplate;
     }
 
+    /**
+     * Converts the given amount from one currency to another.
+     *
+     * @param  from   the currency to convert from
+     * @param  to     the currency to convert to
+     * @param  amount the amount to convert
+     * @return        the converted amount in the new currency
+     */
     public double convertCurrency(String from, String to, double amount) {
         String query = String.format("%s_%s", from, to);
         String url = String.format("%s?q=%s&compact=ultra&apiKey=%s", apiUrl, query, apiKey);

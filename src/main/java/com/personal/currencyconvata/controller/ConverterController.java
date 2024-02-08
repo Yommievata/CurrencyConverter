@@ -18,6 +18,14 @@ public class ConverterController {
         this.converterService = converterService;
     }
 
+    /**
+     * Convert currency from one type to another.
+     *
+     * @param  from    the currency to convert from
+     * @param  to      the currency to convert to
+     * @param  amount  the amount to convert
+     * @return         the converted amount
+     */
     @GetMapping("/convertCurrency")
     public double convertCurrency(@RequestParam String from,
                                   @RequestParam String to,
