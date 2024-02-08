@@ -12,8 +12,11 @@ const CurrencyConverter = () => {
     try {
       axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
+      const uppercasedFromCurrency = fromCurrency.toUpperCase();
+      const uppercasedToCurrency = toCurrency.toUpperCase();
+
       const response = await axios.get(
-        `http://localhost:8080/convertCurrency?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`
+        `http://localhost:8080/convertCurrency?from=${uppercasedFromCurrency}&to=${uppercasedToCurrency}&amount=${amount}`
       );
       setConvertedAmount(response.data);
     } catch (error) {
